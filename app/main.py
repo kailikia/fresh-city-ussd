@@ -53,10 +53,18 @@ def ussdSession():
     thirdMenu = '''CON Call us on +254700 483348
     '''
 
-    successMenu = '''CON Registration received.
+    successMenu = '''CON Registration Successfully received.
     '''
 
-    error = "END Invalid input"
+    error = '''CON An error occured. Choose an option below
+    1. Register as a Farmer
+    2. Register as a Collection Point Agent
+    3. Buy Fresh Farm Produce
+    4. Buy Kienyeji Produce
+    5. Track your Order
+    6. Contact Us Directly
+    '''
+    # More menu screens ...
 
     # Session logic
     if userResponse == '3'  or userResponse == '4' or userResponse == '5':
