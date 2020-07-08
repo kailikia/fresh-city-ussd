@@ -1,9 +1,20 @@
 from flask import Flask, request, make_response, render_template
 import random
 import string
-
+import re
 
 app = Flask(__name__)
+
+# for validating an Email
+regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+# for custom mails use: '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w+$'
+
+# Define a function for validating an Email
+def checkEmail(email):
+    if(re.search(regex,email)):
+        return True
+    else:
+        return False
 
 @app.route('/')
 def index():
@@ -33,13 +44,16 @@ def ussdSession():
     '''
     # More menu screens ...
 
-    firstMenu = '''CON Enter your full name
+    firstMenu = '''CON Shop at http://www.freschcity.co.ke
     '''
 
-    secondMenu = '''CON Shop at http://www.freschcity.co.ke
+    secondMenu = '''CON Enter your Email
     '''
 
     thirdMenu = '''CON Call us on +254700 483348
+    '''
+
+    successMenu = '''CON Registration received.
     '''
 
     error = "END Invalid input"
@@ -56,7 +70,10 @@ def ussdSession():
 
     elif userResponse == '':
         menu = mainMenu
-        
+
+    elif checkEmail(userResponse):
+        menu = successMenu
+
     else:
         menu = error
 
