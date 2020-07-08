@@ -23,27 +23,41 @@ def ussdSession():
     userResponse = textArray[-1] if isinstance(textArray, list) else text
 
     # Screens
-    firstMenu = '''CON Welcome to FreshCity Kenya. Choose an option below
+    mainMenu = '''CON Welcome to FreshCity Kenya. Choose an option below
     1. Register as a Farmer
     2. Register as a Collection Point Agent
     3. Buy Fresh Farm Produce
-    98. MORE
-    '''
-    secondMenu = '''CON Welcome to FreshCity Kenya. Choose an option below
     4. Buy Kienyeji Produce
     5. Track your Order
     6. Contact Us Directly
-    0. BACK
     '''
     # More menu screens ...
 
-    error     = "END Invalid input"
+    firstMenu = '''CON Enter your full name
+    '''
+
+    secondMenu = '''CON Shop at http://www.freschcity.co.ke
+    '''
+
+    thirdMenu = '''CON Call us on +254700 483348
+    '''
+
+    error = "END Invalid input"
 
     # Session logic
-    if userResponse == 0  or userResponse == '':
+    if userResponse == '3'  or userResponse == '4' or userResponse == '5':
         menu = firstMenu
-    elif userResponse == '98':
+
+    elif userResponse == '1' or userResponse == '2':
         menu = secondMenu
+
+    elif userResponse == '6':
+        menu = thirdMenu
+
+    elif userResponse == '':
+        menu = mainMenu
+
+
     #  More logic
     # '''
     # if userResponse == 1 :
