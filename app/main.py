@@ -56,16 +56,7 @@ def ussdSession():
 
     elif userResponse == '':
         menu = mainMenu
-
-
-    #  More logic
-    # '''
-    # if userResponse == 1 :
-    #     do something
-    # if userResponse == 2 :
-    #     do something else
-    # ...
-    # '''
+        
     else:
         menu = error
 
