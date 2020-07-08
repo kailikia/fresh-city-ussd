@@ -34,7 +34,7 @@ def ussdSession():
     userResponse = textArray[-1] if isinstance(textArray, list) else text
 
     # Screens
-    mainMenu = '''CON Welcome to FreshCity Kenya
+    mainMenu = '''CON Welcome to FreshCity Kenya.Choose
     1. Register as a Farmer
     2. Register as a Collection Agent
     3. Buy Fresh Produce
