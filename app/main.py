@@ -36,8 +36,8 @@ def ussdSession():
     # Screens
     mainMenu = '''CON Welcome to FreshCity Kenya
     1. Register as a Farmer
-    2. Register as a Collection Point Agent
-    3. Buy Fresh Farm Produce
+    2. Register as a Collection Agent
+    3. Buy Fresh Produce
     4. Buy Kienyeji Produce
     5. Track your Order
     6. Contact Us Directly
@@ -56,10 +56,10 @@ def ussdSession():
     successMenu = '''CON Registration Successfully received.Type 0 to go to main menu
     '''
 
-    error = '''CON An error occured. Choose an option below
+    error = '''CON An error occured.
     1. Register as a Farmer
-    2. Register as a Collection Point Agent
-    3. Buy Fresh Farm Produce
+    2. Register as a Collection Agent
+    3. Buy Fresh Produce
     4. Buy Kienyeji Produce
     5. Track your Order
     6. Contact Us Directly
