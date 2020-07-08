@@ -23,13 +23,13 @@ def ussdSession():
     userResponse = textArray[-1] if isinstance(textArray, list) else text
 
     # Screens
-    firstMenu = '''Welcome to FreshCity Kenya. Choose an option below
+    firstMenu = '''CON Welcome to FreshCity Kenya. Choose an option below
     1. Register as a Farmer
     2. Register as a Collection Point Agent
     3. Buy Fresh Farm Produce
     98. MORE
     '''
-    secondMenu = '''Welcome to FreshCity Kenya. Choose an option below
+    secondMenu = '''CON Welcome to FreshCity Kenya. Choose an option below
     4. Buy Kienyeji Produce
     5. Track your Order
     6. Contact Us Directly
