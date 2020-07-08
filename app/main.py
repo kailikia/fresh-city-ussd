@@ -53,7 +53,7 @@ def ussdSession():
     thirdMenu = '''CON Call us on +254700 483348
     '''
 
-    successMenu = '''CON Registration Successfully received.
+    successMenu = '''CON Registration Successfully received.Type 0 to go to main menu
     '''
 
     error = '''CON An error occured. Choose an option below
