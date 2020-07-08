@@ -44,7 +44,7 @@ def ussdSession():
     '''
     # More menu screens ...
 
-    firstMenu = '''CON Shop at http://www.freschcity.co.ke
+    firstMenu = '''CON Shop at http://www.freschcity.co.ke .Type 0 to go to Main Menu
     '''
 
     secondMenu = '''CON Enter your Email
@@ -53,7 +53,7 @@ def ussdSession():
     thirdMenu = '''CON Call us on +254700 483348
     '''
 
-    successMenu = '''CON Registration Successfully received.Type 0 to go to main menu
+    successMenu = '''CON Registration Successfully received.Type 0 to go to Main Menu
     '''
 
     error = '''CON An error occured.Choose
