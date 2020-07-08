@@ -56,7 +56,7 @@ def ussdSession():
     successMenu = '''CON Registration Successfully received.Type 0 to go to main menu
     '''
 
-    error = '''CON An error occured.
+    error = '''CON An error occured.Choose
     1. Register as a Farmer
     2. Register as a Collection Agent
     3. Buy Fresh Produce
