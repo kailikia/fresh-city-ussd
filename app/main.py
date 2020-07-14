@@ -77,7 +77,7 @@ def ussdSession():
         menu = manyMenu
 
     elif  len(textArray) == 4:
-        payment = USSDModel(sessionID=sessionId,phoneNumber=phoneNumber,name=textArray[0],county=textArray[1],products=textArray[2],farm=textArray[3])
+        payment = USSDModel(sessionID=sessionId,phoneNumber=phoneNumber,name=textArray[0],county=textArray[1],products=textArray[2],ready=textArray[3])
         payment.create_record()
         menu = successMenu
 
