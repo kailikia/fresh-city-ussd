@@ -1,26 +1,30 @@
-from flask import Flask, request, make_response, render_template
-import random
-import string
-import re
+from config import re,app,request,make_response,render_template,db
+from ussdClass import USSDModel
 
-app = Flask(__name__)
+# # for validating an Email
+# regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+# # for custom mails use: '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w+$'
+#
+# # Define a function for validating an Email
+# def checkEmail(email):
+#     if(re.search(regex,email)):
+#         return True
+#     else:
+#         return False
 
-# for validating an Email
-regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
-# for custom mails use: '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w+$'
-
-# Define a function for validating an Email
-def checkEmail(email):
-    if(re.search(regex,email)):
-        return True
-    else:
-        return False
+@app.before_first_request
+def createTables():
+    db.create_all()
 
 @app.route('/')
 def index():
     ussdChannel = "*483*384#" # Your ussd channel from Africa's Talking
     return ussdChannel
     # return render_template('index.html', channel=ussdChannel)
+
+@app.route('/records')
+def all():
+    return render_template("index.html", ussds = USSDModel.fetch_all())
 
 @app.route('/ussd', methods=['POST'])
 def ussdSession():
@@ -73,6 +77,8 @@ def ussdSession():
         menu = manyMenu
 
     elif  len(textArray) == 4:
+        payment = USSDModel(sessionID=sessionId,phoneNumber=phoneNumber,name=textArray[1],county=textArray[2],products=textArray[3],farm=textArray[4])
+        payment.create_record()
         menu = successMenu
 
     else:
