@@ -37,7 +37,7 @@
         <td>{{ ussd.county }}</td>
         <td>{{ ussd.products }}</td>
         <td>{{ ussd.ready }}</td>
-        <td>{{ ussd.time_created }}</td>
+        <td>{{ ussd.time_created.strftime("%d %b %Y ") }}</td>
     </tr>
   {% endfor %}
   </tbody>
