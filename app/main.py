@@ -56,10 +56,10 @@ def ussdSession():
     manyMenu = '''CON When will they be ready (in days)?
     '''
 
-    successMenu = '''CON Registration Successfully received.
+    successMenu = '''END Registration Successfully received.
     '''
 
-    error = '''CON An error occured.
+    error = '''END An error occured.
     '''
     # More menu screens ...
 
