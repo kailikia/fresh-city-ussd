@@ -60,19 +60,19 @@ def ussdSession():
     # More menu screens ...
 
     # Session logic
-    if len(textArray) == 1:
+    if len(textArray) == 0:
         menu = nameMenu
 
-    elif len(textArray) == 2:
+    elif len(textArray) == 1:
         menu = countyMenu
 
-    elif  len(textArray) == 3:
+    elif  len(textArray) == 2:
         menu = farmMenu
 
-    elif len(textArray) == 4:
+    elif len(textArray) == 3:
         menu = manyMenu
 
-    elif  len(textArray) == 5:
+    elif  len(textArray) == 4:
         menu = successMenu
 
     else:
