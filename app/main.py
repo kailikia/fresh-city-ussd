@@ -33,6 +33,10 @@ def ussdSession():
     textArray    = text.split("*") if text else text
     userResponse = textArray[-1] if isinstance(textArray, list) else text
 
+    print("text array:",textArray)
+
+    print("user response:",userResponse)
+
     # Screens
     nameMenu = '''CON Welcome to FreshCity Kenya Farmers Registration.
     What is your name?
