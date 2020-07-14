@@ -20,6 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dd492abe-8f1e-4148-86ff-9787090b9592" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,6 +101,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="441" y="165" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/1366.0.1360.728@0.0.1366.728" timestamp="1594231799342" />
+    <state x="1826" y="118" key="FileChooserDialogImpl" timestamp="1594289781209">
+      <screen x="1366" y="0" width="1360" height="728" />
+    </state>
+    <state x="1826" y="118" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1360.728@1366.0.1360.728" timestamp="1594289781209" />
     <state width="1345" height="187" key="GridCell.Tab.0.bottom" timestamp="1594242630129">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

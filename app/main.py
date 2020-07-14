@@ -34,52 +34,41 @@ def ussdSession():
     userResponse = textArray[-1] if isinstance(textArray, list) else text
 
     # Screens
-    mainMenu = '''CON Welcome to FreshCity Kenya.Choose
-    1. Register as a Farmer
-    2. Register as a Collection Agent
-    3. Buy Fresh Produce
-    4. Buy Kienyeji Produce
-    5. Track your Order
-    6. Contact Us Directly
+    nameMenu = '''CON Welcome to FreshCity Kenya Farmers Registration.
+    What is your name?
     '''
     # More menu screens ...
 
-    firstMenu = '''CON Shop at http://www.freschcity.co.ke .Type 0 to go to Main Menu
+    countyMenu = '''CON Which county is your farm located?
     '''
 
-    secondMenu = '''CON Enter your Email
+    farmMenu = '''CON What do you Farm, separated in comas (e.g Nduma,Bananas,...)?
     '''
 
-    thirdMenu = '''CON Call us on +254700 483348
+    manyMenu = '''CON When will they be ready (in days)?
     '''
 
-    successMenu = '''CON Registration Successfully received.Type 0 to go to Main Menu
+    successMenu = '''CON Registration Successfully received.
     '''
 
-    error = '''CON An error occured.Choose
-    1. Register as a Farmer
-    2. Register as a Collection Agent
-    3. Buy Fresh Produce
-    4. Buy Kienyeji Produce
-    5. Track your Order
-    6. Contact Us Directly
+    error = '''CON An error occured.
     '''
     # More menu screens ...
 
     # Session logic
-    if userResponse == '3'  or userResponse == '4' or userResponse == '5':
-        menu = firstMenu
+    if len(textArray) == 1:
+        menu = nameMenu
 
-    elif userResponse == '1' or userResponse == '2':
-        menu = secondMenu
+    elif len(textArray) == 2:
+        menu = countyMenu
 
-    elif userResponse == '6':
-        menu = thirdMenu
+    elif  len(textArray) == 3:
+        menu = farmMenu
 
-    elif userResponse == '':
-        menu = mainMenu
+    elif len(textArray) == 4:
+        menu = manyMenu
 
-    elif checkEmail(userResponse):
+    elif  len(textArray) == 5:
         menu = successMenu
 
     else:
