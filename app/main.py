@@ -47,10 +47,13 @@ def ussdSession():
     '''
     # More menu screens ...
 
-    countyMenu = '''CON Which county is your farm located?
+    countyMenu = '''CON Which county is your Farm located?
     '''
 
-    farmMenu = '''CON What do you Farm, separated in comas (e.g Nduma,Bananas,...)?
+    locationMenu = '''CON Which village/location/street/road is your Farm located?
+    '''
+
+    farmMenu = '''CON What are your Farm Products, separated in comas (e.g Nduma,Bananas,...)?
     '''
 
     manyMenu = '''CON When will they be ready (in days)?
@@ -71,13 +74,16 @@ def ussdSession():
         menu = countyMenu
 
     elif  len(textArray) == 2:
+        menu = locationMenu
+
+    elif  len(textArray) == 3:
         menu = farmMenu
 
-    elif len(textArray) == 3:
+    elif len(textArray) == 4:
         menu = manyMenu
 
-    elif  len(textArray) == 4:
-        payment = USSDModel(sessionID=sessionId,phoneNumber=phoneNumber,name=textArray[0],county=textArray[1],products=textArray[2],ready=textArray[3])
+    elif  len(textArray) == 5:
+        payment = USSDModel(sessionID=sessionId,phoneNumber=phoneNumber,name=textArray[0],county=textArray[1],location=textArray[2],products=textArray[3],ready=textArray[4])
         payment.create_record()
         menu = successMenu
 

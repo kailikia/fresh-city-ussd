@@ -8,6 +8,7 @@ class USSDModel(db.Model):
     phoneNumber = db.Column(db.String(120), nullable=False)
     name = db.Column(db.String(120), nullable=False)
     county = db.Column(db.String(120), nullable=False)
+    location = db.Column(db.String(120), nullable=False)
     products = db.Column(db.String(), nullable=False)
     ready = db.Column(db.String(120), nullable=False)
     time_created = db.Column(db.DateTime(timezone=True), server_default=func.now())
