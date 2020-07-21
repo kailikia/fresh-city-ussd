@@ -22,8 +22,10 @@
       <th scope="col">Phone</th>
       <th scope="col">Name</th>
       <th scope="col">County</th>
+      <th scope="col">Location</th>
       <th scope="col">Farm Products</th>
       <th scope="col">Ready</th>
+      <th scope="col">Quantity</th>
       <th scope="col">Time</th>
     </tr>
   </thead>
@@ -35,8 +37,10 @@
         <td>{{ ussd.phoneNumber }}</td>
         <td>{{ ussd.name }}</td>
         <td>{{ ussd.county }}</td>
+        <td>{{ ussd.location }}</td>
         <td>{{ ussd.products }}</td>
         <td>{{ ussd.ready }}</td>
+        <td>{{ ussd.quantity }}</td>
         <td>{{ ussd.time_created.strftime("%d %b %Y ") }}</td>
     </tr>
   {% endfor %}
