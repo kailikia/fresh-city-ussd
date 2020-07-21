@@ -56,7 +56,10 @@ def ussdSession():
     farmMenu = '''CON What are your Farm Products, separated in comas (e.g Nduma,Bananas,...)?
     '''
 
-    manyMenu = '''CON When will they be ready (in days)?
+    manyMenu = '''CON When will they be ready to sell (in days)?
+    '''
+
+    quantityMenu = '''CON What quantity will be ready (i.e 5 Ltrs, 20 Kgs,..)?
     '''
 
     successMenu = '''END Registration Successfully received.
@@ -82,8 +85,11 @@ def ussdSession():
     elif len(textArray) == 4:
         menu = manyMenu
 
-    elif  len(textArray) == 5:
-        payment = USSDModel(sessionID=sessionId,phoneNumber=phoneNumber,name=textArray[0],county=textArray[1],location=textArray[2],products=textArray[3],ready=textArray[4])
+    elif len(textArray) == 5:
+        menu = quantityMenu
+
+    elif  len(textArray) == 6:
+        payment = USSDModel(sessionID=sessionId,phoneNumber=phoneNumber,name=textArray[0],county=textArray[1],location=textArray[2],products=textArray[3],ready=textArray[4],quantity=textArray[5])
         payment.create_record()
         menu = successMenu
 
