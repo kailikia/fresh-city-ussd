@@ -47,13 +47,13 @@ def ussdSession():
     '''
 
     # Screens
-    nameMenuEN = '''CON Welcome to FreshCity Kenya Farmers Registration.
-    What is your name?
-    '''
-
-    nameMenuSW = '''CON Karibu kwenye Usajili wa Wakulima wa FreshCity Kenya.
-    Jina lako nani?
-    '''
+    # nameMenuEN = '''CON Welcome to FreshCity Kenya Farmers Registration.
+    # What is your name?
+    # '''
+    #
+    # nameMenuSW = '''CON Karibu kwenye Usajili wa Wakulima wa FreshCity Kenya.
+    # Jina lako nani?
+    # '''
     # More menu screens ...
 
     countyMenuEN = '''CON Which county is your Farm located?
@@ -101,31 +101,31 @@ def ussdSession():
         menu = languageMenu
 
     elif len(textArray) == 1:
-        if int(textArray[0]) == 1:
+        if int(textArray[0]) == 2:
             menu = countyMenuEN
         else:
             menu = countyMenuSW
 
     elif len(textArray) == 2:
-        if int(textArray[0]) == 1:
+        if int(textArray[0]) == 2:
             menu = locationMenuEN
         else:
             menu = locationMenuSW
 
     elif len(textArray) == 3:
-        if int(textArray[0]) == 1:
+        if int(textArray[0]) == 2:
             menu = farmMenuEN
         else:
             menu = farmMenuSW
 
     elif len(textArray) == 4:
-        if int(textArray[0]) == 1:
+        if int(textArray[0]) == 2:
             menu = manyMenuEN
         else:
             menu = manyMenuSW
 
     elif len(textArray) == 5:
-        if int(textArray[0]) == 1:
+        if int(textArray[0]) == 2:
             menu = quantityMenuEN
         else:
             menu = quantityMenuSW
@@ -133,7 +133,7 @@ def ussdSession():
     elif  len(textArray) == 6:
         ussd = USSDModel(sessionID=sessionId,phoneNumber=phoneNumber,name=textArray[0],county=textArray[1],location=textArray[2],products=textArray[3],ready=textArray[4],quantity=textArray[5])
         ussd.create_record()
-        if int(textArray[0]) == 1:
+        if int(textArray[0]) == 2:
             menu = successMenuEN
         else:
             menu = successMenuSW
