@@ -90,37 +90,40 @@ def ussdSession():
 
     error = '''END An error occured.
     '''
+
+    lang = int(textArray[0])
+
     # More menu screens ...
     # Session logic
     if len(textArray) == 0:
         menu = languageMenu
 
     elif len(textArray) == 1:
-        if textArray[0] == 1:
+        if lang == 1:
             menu = countyMenuEN
         else:
             menu = countyMenuSW
 
     elif len(textArray) == 2:
-        if textArray[0] == 1:
+        if lang == 1:
             menu = locationMenuEN
         else:
             menu = locationMenuSW
 
     elif len(textArray) == 3:
-        if textArray[0] == 1:
+        if lang == 1:
             menu = farmMenuEN
         else:
             menu = farmMenuSW
 
     elif len(textArray) == 4:
-        if textArray[0] == 1:
+        if lang == 1:
             menu = manyMenuEN
         else:
             menu = manyMenuSW
 
     elif len(textArray) == 5:
-        if textArray[0] == 1:
+        if lang == 1:
             menu = quantityMenuEN
         else:
             menu = quantityMenuSW
@@ -128,7 +131,7 @@ def ussdSession():
     elif  len(textArray) == 6:
         ussd = USSDModel(sessionID=sessionId,phoneNumber=phoneNumber,name=textArray[0],county=textArray[1],location=textArray[2],products=textArray[3],ready=textArray[4],quantity=textArray[5])
         ussd.create_record()
-        if textArray[0] == 1:
+        if lang == 1:
             menu = successMenuEN
         else:
             menu = successMenuSW
