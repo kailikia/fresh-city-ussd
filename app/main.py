@@ -41,57 +41,97 @@ def ussdSession():
 
     print("user response:",userResponse)
 
+    languageMenu = '''CON Choose a language
+    1. Kiswahili
+    2. English
+    '''
+
     # Screens
     nameMenu = '''CON Welcome to FreshCity Kenya Farmers Registration.
     What is your name?
     '''
     # More menu screens ...
 
-    countyMenu = '''CON Which county is your Farm located?
+    countyMenuEN = '''CON Which county is your Farm located?
     '''
 
-    locationMenu = '''CON Which village/location/street/road is your Farm located?
+    countyMenuSW = '''CON Shamba lako liko kaunti gani?
     '''
 
-    farmMenu = '''CON What are your Farm Products, separated in comas (e.g Nduma,Bananas,...)?
+    locationMenuEN = '''CON Which village/location/street/road is your Farm located?
     '''
 
-    manyMenu = '''CON When will they be ready to sell (in days)?
+    locationMenuSW  = '''CON Shamba lako liko kitongoji gani?
     '''
 
-    quantityMenu = '''CON What quantity will be ready (i.e 5 Ltrs, 20 Kgs,..)?
+    farmMenuEN = '''CON What products do you farm (e.g Nduma,Banana,Sukuma,...)?
     '''
 
-    successMenu = '''END Registration Successfully received.
+    farmMenuSW = '''CON Unlima bidhaa gani (e.g Nduma,Ndizi,Sukuma,...)?
+    '''
+
+    manyMenuEN = '''CON When will they be ready to sell (in days)?
+    '''
+
+    manyMenuSW = '''CON Zitakuwa tayari siku gani (kwa mfano: Wiki mbili, miezi tatu..)?
+    '''
+
+    quantityMenuEN = '''CON What quantity will be ready (i.e 5 Ltrs, 20 Kgs,..)?
+    '''
+
+    quantityMenuSW = '''CON Kiasi gani kitakuwa tayari (kwa mfano: Lita 5 , Kilo 20 ,..)?
+    '''
+
+    successMenuSW = '''END Asanti sana, tumepokea usajili wako.
+    '''
+
+    successMenuEN = '''END Registration successfully received.
     '''
 
     error = '''END An error occured.
     '''
     # More menu screens ...
-
     # Session logic
     if len(textArray) == 0:
-        menu = nameMenu
+        menu = languageMenu
 
     elif len(textArray) == 1:
-        menu = countyMenu
+        if textArray[0] == 1:
+            menu = countyMenuEN
+        else:
+            menu = countyMenuSW
 
-    elif  len(textArray) == 2:
-        menu = locationMenu
+    elif len(textArray) == 2:
+        if textArray[0] == 1:
+            menu = locationMenuEN
+        else:
+            menu = locationMenuSW
 
-    elif  len(textArray) == 3:
-        menu = farmMenu
+    elif len(textArray) == 3:
+        if textArray[0] == 1:
+            menu = farmMenuEN
+        else:
+            menu = farmMenuSW
 
     elif len(textArray) == 4:
-        menu = manyMenu
+        if textArray[0] == 1:
+            menu = manyMenuEN
+        else:
+            menu = manyMenuSW
 
     elif len(textArray) == 5:
-        menu = quantityMenu
+        if textArray[0] == 1:
+            menu = quantityMenuEN
+        else:
+            menu = quantityMenuSW
 
     elif  len(textArray) == 6:
-        payment = USSDModel(sessionID=sessionId,phoneNumber=phoneNumber,name=textArray[0],county=textArray[1],location=textArray[2],products=textArray[3],ready=textArray[4],quantity=textArray[5])
-        payment.create_record()
-        menu = successMenu
+        ussd = USSDModel(sessionID=sessionId,phoneNumber=phoneNumber,name=textArray[0],county=textArray[1],location=textArray[2],products=textArray[3],ready=textArray[4],quantity=textArray[5])
+        ussd.create_record()
+        if textArray[0] == 1:
+            menu = successMenuEN
+        else:
+            menu = successMenuSW
 
     else:
         menu = error
