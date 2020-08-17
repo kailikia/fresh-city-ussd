@@ -47,8 +47,12 @@ def ussdSession():
     '''
 
     # Screens
-    nameMenu = '''CON Welcome to FreshCity Kenya Farmers Registration.
+    nameMenuEN = '''CON Welcome to FreshCity Kenya Farmers Registration.
     What is your name?
+    '''
+
+    nameMenuSW = '''CON Karibu kwenye Usajili wa Wakulima wa FreshCity Kenya.
+    Jina lako nani?
     '''
     # More menu screens ...
 
@@ -91,39 +95,37 @@ def ussdSession():
     error = '''END An error occured.
     '''
 
-    lang = int(textArray[0])
-
     # More menu screens ...
     # Session logic
     if len(textArray) == 0:
         menu = languageMenu
 
     elif len(textArray) == 1:
-        if lang == 1:
+        if int(textArray[0]) == 1:
             menu = countyMenuEN
         else:
             menu = countyMenuSW
 
     elif len(textArray) == 2:
-        if lang == 1:
+        if int(textArray[0]) == 1:
             menu = locationMenuEN
         else:
             menu = locationMenuSW
 
     elif len(textArray) == 3:
-        if lang == 1:
+        if int(textArray[0]) == 1:
             menu = farmMenuEN
         else:
             menu = farmMenuSW
 
     elif len(textArray) == 4:
-        if lang == 1:
+        if int(textArray[0]) == 1:
             menu = manyMenuEN
         else:
             menu = manyMenuSW
 
     elif len(textArray) == 5:
-        if lang == 1:
+        if int(textArray[0]) == 1:
             menu = quantityMenuEN
         else:
             menu = quantityMenuSW
@@ -131,7 +133,7 @@ def ussdSession():
     elif  len(textArray) == 6:
         ussd = USSDModel(sessionID=sessionId,phoneNumber=phoneNumber,name=textArray[0],county=textArray[1],location=textArray[2],products=textArray[3],ready=textArray[4],quantity=textArray[5])
         ussd.create_record()
-        if lang == 1:
+        if int(textArray[0]) == 1:
             menu = successMenuEN
         else:
             menu = successMenuSW
