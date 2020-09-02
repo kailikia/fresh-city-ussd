@@ -26,7 +26,7 @@ def index():
 
 @app.route('/records', methods=["post","get"])
 def all():
-    global loggedIn;
+    # global loggedIn;
     if(loggedIn == True):
         print(1)
         return render_template("index.html", ussds = USSDModel.fetch_all())
@@ -56,7 +56,7 @@ def ussdSession():
     if(Phone.fetch_one(sessionId)):
         pass
     else:
-        Phone.create_record(sessionID = sessionId, phoneNumber = phoneNumber)
+        Phone.create_record(sessionID=sessionId, phoneNumber = phoneNumber)
 
     textArray    = text.split("*") if text else text
     userResponse = textArray[-1] if isinstance(textArray, list) else text
