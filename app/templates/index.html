@@ -42,7 +42,7 @@
         <td>{{ ussd.products }}</td>
         <td>{{ ussd.ready }}</td>
         <td>{{ ussd.quantity }}</td>
-        <td>{{ ussd.time_created.strftime("%d %b %Y ") }}</td>
+        <td>{{ ussd.time_created.strftime("%d %b %Y %H:%M:%S") }}</td>
     </tr>
   {% endfor %}
   </tbody>
@@ -67,7 +67,7 @@
         <td>{{ phone.id }}</td>
         <td>{{ phone.sessionID }}</td>
         <td>{{ phone.phoneNumber }}</td>
-        <td>{{ phone.time_created }}</td>
+        <td>{{ phone.time_created.strftime("%d %b %Y %H:%M:%S") }}</td>
     </tr>
   {% endfor %}
   </tbody>
