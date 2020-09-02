@@ -21,20 +21,20 @@ def index():
     ussdChannel = "*483*384#" # Your ussd channel from Africa's Talking
     return ussdChannel
     # return render_template('index.html', channel=ussdChannel)
-ss = LoggedSession()
+
 @app.route('/records', methods=["post","get"])
 def all():
-    print("session",ss.get_session())
-    if(ss.get_session() == True):
+    print("session",session)
+    if(session['email']):
         print(1)
         return render_template("index.html", ussds = USSDModel.fetch_all())
     else:
         print(request.method)
         if request.method == 'POST':
             if request.form['email'] == 'sadickcomptech@gmail.com' and request.form['password'] == 'Sadick@2020$':
-                ss.set_session(True)
+                session['email'] = request.form['email']
                 print(2)
-                print("session logged in",ss.get_session())
+                print("session logged in",session['email'])
                 return redirect(url_for("all"))
             else:
                 print(3)
