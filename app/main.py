@@ -34,6 +34,7 @@ def all():
             if request.form['email'] == 'sadickcomptech@gmail.com' and request.form['password'] == 'Sadick@2020$':
                 ss.set_session(True)
                 print(2)
+                print("session logged in",ss.get_session())
                 return redirect(url_for("all"))
             else:
                 print(3)
