@@ -31,7 +31,7 @@ def all():
     else:
         print(request.method)
         if request.method == 'POST':
-            if request.form['email'] == 'sadickcomptech@gmail.com' and request.form['password'] == 'Sadick@2020$':
+            if request.form['email'] == 'sadickcomptechltd@gmail.com' and request.form['password'] == 'Sadick@2020$':
                 session['email'] = request.form['email']
                 print(2)
                 print("session logged in",session['email'])
