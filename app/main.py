@@ -24,6 +24,7 @@ def index():
 ss = LoggedSession()
 @app.route('/records', methods=["post","get"])
 def all():
+    print(ss)
     if(ss.get_session() == True):
         print(1)
         return render_template("index.html", ussds = USSDModel.fetch_all())
