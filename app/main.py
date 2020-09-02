@@ -25,7 +25,7 @@ def index():
 @app.route('/records', methods=["post","get"])
 def all():
     print("session",session)
-    if(session['email']):
+    if(session):
         print(1)
         return render_template("index.html", ussds = USSDModel.fetch_all())
     else:
