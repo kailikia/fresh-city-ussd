@@ -52,9 +52,8 @@ class Phone(db.Model):
 class LoggedSession():
     loggedIn = False
 
-    @classmethod
     def set_session(self, value):
         self.loggedIn = value
-    @classmethod
+
     def get_session(self):
         return self.loggedIn
