@@ -1,5 +1,5 @@
-from config import re,app,request,make_response,render_template,db
-from ussdClass import USSDModel
+from config import *
+# from ussdClass import USSDModel, Phone
 
 # # for validating an Email
 # regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
@@ -12,6 +12,8 @@ from ussdClass import USSDModel
 #     else:
 #         return False
 
+loggedIn = False
+
 @app.before_first_request
 def createTables():
     db.create_all()
@@ -22,9 +24,26 @@ def index():
     return ussdChannel
     # return render_template('index.html', channel=ussdChannel)
 
-@app.route('/records')
+@app.route('/records', methods=["post","get"])
 def all():
-    return render_template("index.html", ussds = USSDModel.fetch_all())
+    global loggedIn;
+    if(loggedIn == True):
+        print(1)
+        return render_template("index.html", ussds = USSDModel.fetch_all())
+    else:
+        print(request.method)
+        if request.method == 'POST':
+            if request.form['email'] == 'sadickcomptech@gmail.com' and request.form['password'] == 'Sadick@2020$':
+                loggedIn = True
+                print(2)
+                return redirect(url_for("all"))
+            else:
+                print(3)
+                flash('Wrong credentials', 'danger')
+                return render_template("login.html")
+        else:
+            print(4)
+            return render_template("login.html")
 
 @app.route('/ussd', methods=['POST'])
 def ussdSession():
@@ -33,6 +52,11 @@ def ussdSession():
     serviceCode = request.values.get("serviceCode", None)
     phoneNumber = request.values.get("phoneNumber", None)
     text        = request.values.get("text", None)
+
+    if(USSDModel.fetch_one(sessionId)):
+        pass
+    else:
+        Phone.create_record(sessionID = sessionId, phoneNumber = phoneNumber)
 
     textArray    = text.split("*") if text else text
     userResponse = textArray[-1] if isinstance(textArray, list) else text
