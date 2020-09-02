@@ -1,5 +1,5 @@
 from config import *
-from ussdClass import USSDModel, Phone, LoggedSession
+from ussdClass import USSDModel, Phone
 
 # # for validating an Email
 # regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
@@ -27,7 +27,7 @@ def all():
     print("session",session)
     if(session):
         print(1)
-        return render_template("index.html", ussds = USSDModel.fetch_all())
+        return render_template("index.html", ussds = USSDModel.fetch_all(), phones= Phone.fetch_all())
     else:
         print(request.method)
         if request.method == 'POST':

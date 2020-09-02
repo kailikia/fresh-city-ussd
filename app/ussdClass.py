@@ -48,12 +48,3 @@ class Phone(db.Model):
             return True
         else:
             return False
-        
-class LoggedSession():
-    loggedIn = False
-
-    def set_session(self, value):
-        self.loggedIn = value
-
-    def get_session(self):
-        return self.loggedIn

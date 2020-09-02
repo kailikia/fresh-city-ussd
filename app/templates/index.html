@@ -13,7 +13,7 @@
   </head>
   <body>
   <div class="container">
-      <h1><center>FreshCity USSD Sessions</center></h1>
+      <h1><center>FreshCity USSD Completed Sessions</center></h1>
 
     <table id ="table" class="table">
   <thead>
@@ -49,6 +49,31 @@
 </table>
   </div>
 
+  <div class="container">
+      <h1><center>All Sessions</center></h1>
+
+    <table id ="tableall" class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">SessionID</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Time</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for phone in phones %}
+    <tr>
+        <td>{{ phone.id }}</td>
+        <td>{{ phone.sessionID }}</td>
+        <td>{{ phone.phoneNumber }}</td>
+        <td>{{ phone.time_created }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+  </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -58,7 +83,11 @@
     <script>
         $(document).ready( function () {
             $('#table').DataTable({
-                 "order": [[ 3, "desc" ]]
+                 "order": [[ 1, "desc" ]]
+            });
+
+             $('#tableall').DataTable({
+                 "order": [[ 1, "desc" ]]
             });
         } );
     </script>
