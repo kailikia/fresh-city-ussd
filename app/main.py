@@ -55,7 +55,8 @@ def ussdSession():
     if(Phone.fetch_one(sessionId)):
         pass
     else:
-        Phone.create_record(sessionID=sessionId, phoneNumber = phoneNumber)
+        p = Phone(sessionID=sessionId, phoneNumber = phoneNumber)
+        p.create_record()
 
     textArray    = text.split("*") if text else text
     userResponse = textArray[-1] if isinstance(textArray, list) else text
