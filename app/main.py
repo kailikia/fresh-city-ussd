@@ -1,5 +1,5 @@
 from config import *
-# from ussdClass import USSDModel, Phone
+from ussdClass import USSDModel, Phone
 
 # # for validating an Email
 # regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
