@@ -1,5 +1,5 @@
 from config import *
-from ussdClass import USSDModel, Phone
+from ussdClass import USSDModel, Phone, LoggedSession
 
 # # for validating an Email
 # regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
@@ -11,8 +11,6 @@ from ussdClass import USSDModel, Phone
 #         return True
 #     else:
 #         return False
-
-loggedIn = False
 
 @app.before_first_request
 def createTables():
@@ -26,15 +24,14 @@ def index():
 
 @app.route('/records', methods=["post","get"])
 def all():
-    # global loggedIn;
-    if(loggedIn == True):
+    if(LoggedSession.get_session() == True):
         print(1)
         return render_template("index.html", ussds = USSDModel.fetch_all())
     else:
         print(request.method)
         if request.method == 'POST':
             if request.form['email'] == 'sadickcomptech@gmail.com' and request.form['password'] == 'Sadick@2020$':
-                loggedIn = True
+                LoggedSession.set_session(True)
                 print(2)
                 return redirect(url_for("all"))
             else:
