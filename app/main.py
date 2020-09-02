@@ -53,7 +53,7 @@ def ussdSession():
     phoneNumber = request.values.get("phoneNumber", None)
     text        = request.values.get("text", None)
 
-    if(USSDModel.fetch_one(sessionId)):
+    if(Phone.fetch_one(sessionId)):
         pass
     else:
         Phone.create_record(sessionID = sessionId, phoneNumber = phoneNumber)
