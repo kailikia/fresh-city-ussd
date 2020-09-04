@@ -16,11 +16,21 @@ from ussdClass import USSDModel, Phone
 def createTables():
     db.create_all()
 
-@app.route('/')
+@app.route('/', methods=['post','get'])
 def index():
-    ussdChannel = "*483*384#" # Your ussd channel from Africa's Talking
-    return ussdChannel
-    # return render_template('index.html', channel=ussdChannel)
+    print(request.method)
+    if request.method == "POST":
+         farmer= USSDModel(sessionID='Web',phoneNumber=request.form['phone'],name=request.form['name'],county=request.form['county'],
+                           location=request.form['location'],products=request.form['products'],ready=request.form['ready'],
+                           quantity=request.form['quantity'])
+         farmer.create_record()
+         flash('Request successfully received. We shall get back to you.')
+         return render_template('farmer.html')
+
+
+    # ussdChannel = "*483*384#" # Your ussd channel from Africa's Talking
+    # return ussdChannel
+    return render_template('farmer.html')
 
 @app.route('/records', methods=["post","get"])
 def all():
@@ -31,7 +41,7 @@ def all():
     else:
         print(request.method)
         if request.method == 'POST':
-            if request.form['email'] == 'sadickcomptechltd@gmail.com' and request.form['password'] == 'Sadick@2020$':
+            if request.form['email'] == 'sadickcomptechltd@gmail.com' and request.form['password'] == 'Sadick@2020':
                 session['email'] = request.form['email']
                 print(2)
                 print("session logged in",session['email'])

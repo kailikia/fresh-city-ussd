@@ -2,7 +2,7 @@ from config import db
 from sqlalchemy.sql import func
 
 class USSDModel(db.Model):
-    __tablename__ = 'ussds'
+    __tablename__ = 'farmers'
     id = db.Column(db.Integer(), primary_key=True)
     sessionID = db.Column(db.String(120), nullable=False)
     phoneNumber = db.Column(db.String(120), nullable=False)
