@@ -120,10 +120,10 @@ def ussdSession():
     quantityMenuSW = '''CON Kiasi gani kitakuwa tayari (kwa mfano: Lita 5 , Kilo 20 ,..)?
     '''
 
-    successMenuSW = '''END Asanti sana, tumepokea usajili wako.
+    successMenuSW = '''END Asanti sana, tumepokea usajili wako. Tutawasiliana na wewe.
     '''
 
-    successMenuEN = '''END Registration successfully received.
+    successMenuEN = '''END Registration successfully received. We shall get back to you.
     '''
 
     error = '''END An error occured.
